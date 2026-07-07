@@ -1,5 +1,5 @@
 // ==========================================
-// SUYOMS VLE MITRA - MASTER USERS DATA
+// SUYOMS VLE MITRA - DIRECT PLAIN TEXT DATA
 // ==========================================
 const users = [
     { username: "7757923192", password: "Yogesh@online", img: "01.png", name: "1 YOGESH ONLINE & MULTI SEVICES" },
@@ -44,20 +44,18 @@ const users = [
     { username: "8806368463", password: "Sachin@online", img: "40.png", name: "40 YADNYA COMPUTER & ONLINE" },
     { username: "8055353880", password: "Amit@online", img: "41.png", name: "41 CARE COMPUTER" },
     { username: "9665819128", password: "Mauli@online", img: "42.png", name: "42 MAULI MULTI SERVICES" },
-    { username: "9503739057", password: "Ganesh@online", img: "43.png", name: "43 GANESH ONLINE" }, // उदाहरणार्थ जोडले
+    { username: "9503739057", password: "Ganesh@online", img: "43.png", name: "43 GANESH ONLINE" },
     { username: "suyoms889324", password: "Yosusai@2024", img: "889324.png", name: "SUYOMS VLE MITRA" }
 ];
 
-// 🔐 LOGIN PROCESS FUNCTION
+// LOGIN PROCESS FUNCTION
 function checkLogin() {
     var enteredID = document.getElementById("username").value.trim();
     var enteredPass = document.getElementById("password").value.trim();
 
-    // CryptoJS वापरून पासवर्ड हॅश करणे
-    var encryptedEnteredPass = CryptoJS.MD5(enteredPass).toString();
-
+    // पासवर्ड थेट लिस्टसोबत मॅच करणे (No Hashing, No Obfuscation)
     var userFound = users.find(function(user) {
-        return user.username === enteredID && user.passwordHash === encryptedEnteredPass;
+        return user.username === enteredID && user.password === enteredPass;
     });
 
     if (userFound) {
