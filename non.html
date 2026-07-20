@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्वयंघोषणापत्र नमुना (परिशिष्ट ब) - File 2</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #0f172a;
+        }
+        
+        .govt-font {
+            font-family: 'Noto Serif Devanagari', Georgia, Serif !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1b4b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4c1d95;
+            border-radius: 4px;
+        }
+
+        #print-area {
+            transform-origin: top center;
+            transition: transform 0.2s ease;
+        }
+
+        @media print {
+            body, html {
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            body * {
+                visibility: hidden;
+            }
+            #print-area, #print-area * {
+                visibility: visible;
+            }
+            #print-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100% !important; 
+                max-width: 100% !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 40px !important; 
+                margin: 0 !important;
+                transform: none !important; 
+                font-size: 14px !important; 
+                line-height: 1.6 !important;
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 text-slate-100">
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-[1600px] mx-auto border-4 border-indigo-900 rounded-xl overflow-hidden bg-indigo-950/40 shadow-2xl">
+        
+        <!-- HEADER -->
+        <header class="bg-gradient-to-r from-indigo-950 via-purple-900 to-indigo-950 p-4 flex flex-col md:flex-row justify-between items-center border-b-4 border-indigo-900">
+            <div class="flex items-center gap-4 mb-4 md:mb-0">
+                <div class="bg-white text-purple-900 p-3 rounded-xl shadow-lg border border-purple-400">
+                    <i class="fa-solid fa-file-contract text-3xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-orange-400 tracking-wide">स्मार्ट नाहरकत प्रमाणपत्र जनरेटर</h1>
+                    <p class="text-sm text-purple-300 font-semibold mt-1">File 2: स्वयंघोषणापत्र नमुना (परिशिष्ट “ब”) - ऑटो मराठी टायपिंग</p>
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <div class="flex gap-3">
+                <button onclick="triggerPrint()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg flex flex-col items-center justify-center w-20 shadow-md transition cursor-pointer">
+                    <i class="fa-solid fa-print text-xl text-sky-400 mb-1"></i>
+                    <span class="text-xs">Print</span>
+                </button>
+                <button onclick="triggerPDFDownload()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg flex flex-col items-center justify-center w-20 shadow-md transition cursor-pointer">
+                    <i class="fa-solid fa-file-pdf text-xl text-red-400 mb-1"></i>
+                    <span class="text-xs">PDF</span>
+                </button>
+                <button onclick="saveFormData()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg flex flex-col items-center justify-center w-20 shadow-md transition cursor-pointer">
+                    <i class="fa-solid fa-floppy-disk text-xl text-yellow-400 mb-1"></i>
+                    <span class="text-xs">Save</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- WORKSPACE -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 p-4">
+            
+            <!-- COLUMN 1: FORM INPUTS -->
+            <div class="xl:col-span-5 bg-purple-950/50 border border-purple-800/60 rounded-xl p-4 flex flex-col h-[880px] overflow-y-auto">
+                
+                <!-- STAMP SELECTOR BUTTONS -->
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-yellow-400 mb-2 uppercase tracking-wider"><i class="fa-solid fa-stamp mr-1"></i> स्टॅम्प प्रिव्ह्यू निवडा</label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button onclick="changeStamp('10')" class="stamp-btn border-2 border-slate-700 bg-slate-900 hover:bg-sky-950 text-sky-400 font-bold py-2 px-1 rounded-lg text-xs transition cursor-pointer text-center">Rs. 10</button>
+                        <button onclick="changeStamp('20')" class="stamp-btn border-2 border-slate-700 bg-slate-900 hover:bg-purple-950 text-purple-400 font-bold py-2 px-1 rounded-lg text-xs transition cursor-pointer text-center">Rs. 20</button>
+                        <button onclick="changeStamp('50')" class="stamp-btn border-2 border-slate-700 bg-slate-900 hover:bg-emerald-950 text-emerald-400 font-bold py-2 px-1 rounded-lg text-xs transition cursor-pointer text-center">Rs. 50</button>
+                        <button onclick="changeStamp('100')" class="stamp-btn border-2 border-slate-700 bg-slate-900 hover:bg-blue-950 text-blue-400 font-bold py-2 px-1 rounded-lg text-xs transition cursor-pointer text-center">Rs. 100</button>
+                    </div>
+                    <button onclick="changeStamp('none')" class="w-full mt-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 text-xs py-1 rounded font-semibold cursor-pointer">स्टॅम्प काढा (Blank Paper)</button>
+                </div>
+
+                <!-- TOP SPACE CONTROLLER -->
+                <div class="mb-4 bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="text-xs font-bold text-purple-300"><i class="fa-solid fa-arrows-up-down mr-1"></i> वरील मार्जिन / स्पेस कमी-जास्त करा</label>
+                        <span id="space-val" class="text-xs font-bold text-yellow-400">0 px</span>
+                    </div>
+                    <input type="range" id="input-top-space" min="0" max="300" value="0" class="w-full accent-purple-500 cursor-pointer">
+                </div>
+
+                <div class="bg-purple-900/80 text-center py-1.5 rounded-lg font-bold text-sm mb-3 shadow border border-purple-700">
+                    माहिती भरा (टाईप करून Space दाबा)
+                </div>
+                
+                <!-- INPUT FORM -->
+                <div class="bg-slate-900/60 p-4 rounded-lg border border-slate-800 text-sm flex-1 space-y-3">
+                    
+                    <div class="grid grid-cols-12 gap-2">
+                        <div class="col-span-4">
+                            <label class="block text-xs text-slate-400 mb-1">आदरार्थी</label>
+                            <select id="input-applicant-title" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500 cursor-pointer">
+                                <option value="श्री.">श्री.</option>
+                                <option value="श्रीमती.">श्रीमती.</option>
+                                <option value="कुमार.">कुमार.</option>
+                                <option value="कुमारी.">कुमारी.</option>
+                            </select>
+                        </div>
+                        <div class="col-span-8">
+                            <label class="block text-xs text-slate-400 mb-1">अर्जदाराचे पूर्ण नाव</label>
+                            <input type="text" id="input-applicant-name" value="गोपाळ तुकाराम वानखडे" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-12 gap-2">
+                        <div class="col-span-5">
+                            <label class="block text-xs text-slate-400 mb-1">नाते पर्याय</label>
+                            <select id="input-relation-type" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500 cursor-pointer">
+                                <option value="यांचा मुलगा">यांचा मुलगा</option>
+                                <option value="यांची मुलगी">यांची मुलगी</option>
+                                <option value="यांची पत्नी">यांची पत्नी</option>
+                            </select>
+                        </div>
+                        <div class="col-span-7">
+                            <label class="block text-xs text-slate-400 mb-1">पालकांचे नाव (श्री.)</label>
+                            <input type="text" id="input-parent-name" value="तुकाराम वानखडे" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">वय (वर्षे)</label>
+                            <input type="text" id="input-age" value="२५" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-xs text-slate-400 mb-1">व्यवसाय निवडा</label>
+                            <select id="input-occupation" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500 cursor-pointer">
+                                <option value="शेतकरी">शेतकरी</option>
+                                <option value="खाजगी नोकरी">खाजगी नोकरी</option>
+                                <option value="सरकारी नोकरी">सरकारी नोकरी</option>
+                                <option value="मोलमजुरी">मोलमजुरी</option>
+                                <option value="व्यापारी">व्यापारी</option>
+                                <option value="गृहिणी">गृहिणी</option>
+                                <option value="सेवा निवृत्त">सेवा निवृत्त</option>
+                                <option value="इतर">इतर</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1">राहणार (रा.)</label>
+                        <input type="text" id="input-residence" value="मु. पो. पुणगाव" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">गाव/शहर</label>
+                            <input type="text" id="input-village" value="पुणगाव" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">तहसील (तालुका)</label>
+                            <input type="text" id="input-tehsil" value="चांदूर बाजार" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">जिल्हा</label>
+                            <input type="text" id="input-district" value="अमरावती" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">जातीचा उल्लेख</label>
+                            <input type="text" id="input-caste-name" value="कुणबी" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">राज्य शासनाचा प्रवर्ग</label>
+                            <select id="input-category-name" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500 cursor-pointer">
+                                <option value="इतर मागासवर्ग (OBC)">इतर मागासवर्ग (OBC)</option>
+                                <option value="विमुक्त जाती (VJ-A)">विमुक्त जाती (VJ-A)</option>
+                                <option value="भटक्या जमाती (NT-B)">भटक्या जमाती (NT-B)</option>
+                                <option value="भटक्या जमाती (NT-C)">भटक्या जमाती (NT-C)</option>
+                                <option value="भटक्या जमाती (NT-D)">भटक्या जमाती (NT-D)</option>
+                                <option value="विशेष मागास प्रवर्ग (SBC)">विशेष मागास प्रवर्ग (SBC)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">परिशिष्ट स्तंभ क्र. ३</label>
+                            <input type="text" id="input-column-no" value="३" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">स्थळ</label>
+                            <input type="text" id="input-place" value="चांदूर बाजार" class="marathi-input w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">दिनांक</label>
+                            <input type="text" id="input-date" value="19/07/2026" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2">
+                        <button onclick="saveFormData()" class="bg-purple-700 hover:bg-purple-600 py-2 rounded font-bold shadow text-xs cursor-pointer"><i class="fa-solid fa-save mr-1"></i> ड्राफ्ट सेव्ह करा</button>
+                        <button onclick="resetFormFields()" class="bg-slate-700 hover:bg-slate-600 py-2 rounded font-bold shadow text-xs cursor-pointer"><i class="fa-solid fa-rotate-left mr-1"></i> रीसेट</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: LIVE PREVIEW A4 -->
+            <div class="xl:col-span-7 bg-purple-950/50 border border-purple-800/60 rounded-xl p-4 flex flex-col h-[880px]">
+                <div class="bg-purple-900/80 px-4 py-1.5 rounded-lg font-bold text-sm mb-3 flex justify-between items-center shadow border border-purple-700">
+                    <span>A4 Live Preview - परिशिष्ट “ब”</span>
+                    <div class="flex items-center gap-2 text-xs bg-slate-950/40 px-2 py-1 rounded">
+                        <i onclick="zoomOut()" class="fa-solid fa-minus cursor-pointer hover:text-purple-400 transition"></i>
+                        <span id="zoom-text">100%</span>
+                        <i onclick="zoomIn()" class="fa-solid fa-plus cursor-pointer hover:text-purple-400 transition"></i>
+                    </div>
+                </div>
+
+                <div class="flex-1 bg-slate-700 p-4 rounded-lg overflow-y-auto flex justify-center items-start">
+                    <div id="print-area" class="govt-font w-[595px] min-h-[842px] bg-white text-slate-900 p-10 shadow-2xl rounded border border-slate-300 relative text-[13px] leading-relaxed">
+                        
+                        <!-- STAMP GRAPHIC CONTAINER -->
+                        <div id="stamp-preview-zone" class="mb-4 hidden text-center border border-dashed border-slate-300 rounded overflow-hidden">
+                            <img id="stamp-img" src="" alt="Stamp" class="w-full max-h-[220px] object-contain">
+                        </div>
+
+                        <!-- DYNAMIC SCROLL SPACE HOLDER -->
+                        <div id="dynamic-space-holder" style="height: 0px;"></div>
+
+                        <!-- Title Block -->
+                        <div class="text-center space-y-1 mb-4 border-b pb-2">
+                            <h2 class="font-bold text-[14px]">अर्जासोबत जोडावयाच्या स्वयंघोषणापत्र नमुना (परिशिष्ट “ब”)</h2>
+                            <p class="text-[11px] text-justify leading-normal font-semibold text-slate-800">
+                                महाराष्ट्र शासनाच्या विमुक्त जाती/भटक्या जमाती/इतर मागासवर्गीय/विशेष मागास प्रवर्गातील अर्जदारांना आरक्षणाचा फायदा मिळण्याकरिता उत्पन्न व प्रगतव्यक्ती/गट (क्रिमिलियर) यामध्ये मोडत नसल्याबाबत सादर करावयाचे स्वयंघोषणापत्र केंद्र शासनाच्या इतर मागासप्रवर्गात मोडणाऱ्या अर्जदाराने आरक्षणाचा फायदा मिळवण्याकरिता उत्पन्न व प्रगत व्यक्ति गट (क्रिमिलियर) यामध्ये मोडत नसल्याबाबत सादर करावयाचे स्वयंघोषणापत्र
+                            </p>
+                        </div>
+
+                        <!-- Main Declaration Text -->
+                        <div class="text-justify text-[13px] leading-[1.7] space-y-3">
+                            <p>
+                                मी <span id="view-applicant-title" class="font-bold">श्री.</span> <span id="view-applicant-name" class="font-bold border-b border-dotted border-slate-900 px-1">गोपाळ तुकाराम वानखडे</span> श्री. <span id="view-parent-name" class="font-bold border-b border-dotted border-slate-900 px-1">तुकाराम वानखडे</span> <span id="view-relation-type" class="font-bold border-b border-dotted border-slate-900 px-1">यांचा मुलगा</span> वय <span id="view-age" class="font-bold border-b border-dotted border-slate-900 px-1">२५</span> वर्ष, व्यवसाय <span id="view-occupation" class="font-bold border-b border-dotted border-slate-900 px-1">शेतकरी</span> रा. <span id="view-residence" class="font-bold border-b border-dotted border-slate-900 px-1">मु. पो. पुणगाव</span> गाव/शहर <span id="view-village" class="font-bold border-b border-dotted border-slate-900 px-1">पुणगाव</span> तहसील <span id="view-tehsil" class="font-bold border-b border-dotted border-slate-900 px-1">चांदूर बाजार</span> जिल्हा <span id="view-district" class="font-bold border-b border-dotted border-slate-900 px-1">अमरावती</span> राज्य महाराष्ट्र येथील रहिवासी असून याद्वारे कथन करतो की मी <span id="view-caste-name" class="font-bold border-b border-dotted border-slate-900 px-1">कुणबी</span> या जातीचा/जमातीचा असून ही जात/जमात केंद्र शासन मिनीस्ट्री ऑफ पर्सोनेल, Public Grievances डिपार्टमेंट ऑफ पर्सोनेल अँड ट्रेनिंग कडील कार्यालयीन ज्ञापक क्रमांक ३६०१२/२२/९३ इएसटीटी (एसटीटी) दिनांक ०८ सप्टेंबर १९९३ अन्वये सुधारित केल्याप्रमाणे तसेच केंद्र शासनाचे आणि राज्य शासनाचे या संदर्भात वेळोवेळी निर्गमित केलेल्या सूचने (NOTIFICATION) नुसार/शासन निर्णय नुसार शासन सेवेतील आरक्षणाच्या फायद्याकरिता इतर मागास प्रवर्गात गणल्या जाते. सदर जात/जमात राज्य शासनाने विहित केलेल्या मागासवर्गीयांच्या यादीमधील <span id="view-category-name" class="font-bold border-b border-dotted border-slate-900 px-1">इतर मागासवर्ग (OBC)</span> या प्रवर्गात मोडते.
+                            </p>
+                            
+                            <p>
+                                मी दृढपूर्वक असेही कथन करतो/करते की, केंद्र शासनाच्या क्रमांक ३६०१२/२२/९३ इएसटीटी (एससीटी) दिनांक ०८ सप्टेंबर १९९३ च्या कार्यालयीन/ज्ञापनासोबतच्या परिशिष्टातील स्तंभ क्रमांक <span id="view-column-no" class="font-bold border-b border-dotted border-slate-900 px-1">३</span> मध्ये नमूद केलेल्या व कार्यालयीन ज्ञापन क्रमांक ३६०३३/५/२००४ इएसटीटी (आर.ई.एस) दिनांक १४ ऑक्टोबर २००४ कार्यालयीन ज्ञापक क्रमांक ३६०३३/५/२००४ इएसटीटी (आर.ई.एस) दिनांक १४ ऑक्टोबर २००८ अन्वये सुधारित केल्याप्रमाणे तसेच केंद्र शासनाचे आणि राज्य शासनाचे या संदर्भात वेळोवेळी निर्गमित केलेल्या सूचने (NOTIFICATION) नुसार/शासन निर्णय नुसार आरक्षणाच्या फायद्या करिता मी विमुक्त जाती/भटक्या जमाती/इतर मागासवर्ग/विशेष मागास प्रवर्गातील उत्पन्न व प्रगत व्यक्ति/गट (क्रिमिलियर) यामध्ये मी मोडत नाही.
+                            </p>
+                            
+                            <p>
+                                मी दृढपूर्वक असेही कथन करतो/करते की, माझ्या आई किंवा वडिलांचा किंवा आई आणि वडील या दोघांचाही दर्जा उत्पन्न हे ३१ मार्च २०२६ रोजी संपणाऱ्या आर्थिक वर्ष अखेरीस वेळोवेळी विहित केलेल्या अटी व शर्तीनुसार इतर मागासवर्ग प्रवर्गातील उत्पन्न व प्रगत व्यक्ति/गट (क्रिमिलियर) यांच्या करिता असलेल्या मर्यादेमध्ये मोडते. भारतीय न्याय संहिता २०२३ चे कलम २३६ व २३७ नुसार मी गुन्ह्यास पात्र राईल व कलम २२९ (२) याच्या तरतुदीनुसार माझ्यावर खटला भरला जाईल व मी शिक्षेस पात्र राहील.
+                            </p>
+                        </div>
+
+                        <!-- Date Place and Signature Area -->
+                        <div class="mt-8 grid grid-cols-2 gap-4 items-end text-[13px]">
+                            <div class="space-y-2">
+                                <p><strong>स्थळ:</strong> <span id="view-place" class="border-b border-dotted border-slate-900 px-2 font-bold">चांदूर बाजार</span></p>
+                                <p><strong>दिनांक:</strong> <span id="view-date-text" class="border-b border-dotted border-slate-900 px-2 font-bold">19/07/2026</span></p>
+                            </div>
+                            <div class="text-center">
+                                <br><br><br>
+                                <p class="font-bold border-t border-slate-400 pt-1 text-[12px]">(स्वयंघोषणापत्र करून देणाऱ्याचे नाव व सही)</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-dashed border-slate-400 my-4">
+
+                        <!-- Footer Notices -->
+                        <div class="text-[10px] text-justify leading-relaxed text-slate-800 space-y-1.5">
+                            <p class="font-bold text-center text-red-700">(उमेदवाराने स्वतः स्वाक्षरी न केलेले शपथपत्र/खुलासा रद्दबातल ठरविण्यात येईल)</p>
+                            <p>
+                                <strong>सूचना:</strong> सदरहू आरक्षणाचा फायदा हा तात्पुरता स्वरूपाचा असून तो उमेदवाराने जात प्रमाणपत्र/उत्पन्न व प्रगत गट व्यक्ति यामध्ये मोडत नसल्यासंदर्भात सादर केलेल्या कागदपत्रांचा/पुराव्याच्या पडताळणी संदर्भात विहित केलेल्या कार्यपद्धतीचा अधीन राहील. जर उमेदवाराने इतर मागासवर्गात मोडत असल्याबाबत किंवा उत्पन्न व प्रगत गट व्यक्ती यामध्ये मोडत नसल्यासंदर्भात संबंधित अर्जासोबत जोडलेली कागदपत्रे आणि पुरावे पडताळणी अंति खोटे अथवा बनावट आढळल्यास कोणतेही पूर्व सूचना किंवा कोणतीही कारणीमांसा न देता त्या उमेदवारास देण्यात आलेल्या आरक्षण विषयक फायदा कायमस्वरूपी रद्द बाबत ठरविण्यात येईल. तसेच सदर प्रकरणी संबंधित उमेदवारास जबाबदार धरण्यात येऊन खोटे अथवा बनावट कागदपत्रे पुरावे दाखल केल्याबद्दल त्याच्याविरुद्ध भारतीय दंड विधान कायद्यानुसार विहित केलेली कारवाई करण्यात येईल.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        let currentZoom = 100;
+        const printAreaEl = document.getElementById('print-area');
+        const zoomTextEl = document.getElementById('zoom-text');
+
+        function zoomIn() { if (currentZoom < 150) { currentZoom += 10; applyZoom(); } }
+        function zoomOut() { if (currentZoom > 50) { currentZoom -= 10; applyZoom(); } }
+        function applyZoom() { printAreaEl.style.transform = `scale(${currentZoom / 100})`; zoomTextEl.innerText = currentZoom + '%'; }
+
+        const inputTopSpace = document.getElementById('input-top-space');
+        const spaceVal = document.getElementById('space-val');
+        const dynamicSpaceHolder = document.getElementById('dynamic-space-holder');
+        const stampPreviewZone = document.getElementById('stamp-preview-zone');
+        const stampImg = document.getElementById('stamp-img');
+
+        inputTopSpace.addEventListener('input', function() {
+            const val = this.value + 'px';
+            spaceVal.innerText = val;
+            dynamicSpaceHolder.style.height = val;
+        });
+
+        function changeStamp(stampType) {
+            document.querySelectorAll('.stamp-btn').forEach(b => {
+                b.classList.remove('border-yellow-400', 'bg-slate-800');
+                b.classList.add('border-slate-700', 'bg-slate-900');
+            });
+
+            if (stampType === 'none') {
+                stampPreviewZone.classList.add('hidden');
+                stampImg.src = "";
+                return;
+            }
+
+            stampPreviewZone.classList.remove('hidden');
+            let imgUrl = "";
+            if (stampType === '10') imgUrl = "10-stamp.jpg";
+            if (stampType === '20') imgUrl = "20-stamp.jpg";
+            if (stampType === '50') imgUrl = "50-stamp.jpg";
+            if (stampType === '100') imgUrl = "100-stamp.jpg";
+            
+            stampImg.src = imgUrl;
+            event.currentTarget.classList.remove('border-slate-700', 'bg-slate-900');
+            event.currentTarget.classList.add('border-yellow-400', 'bg-slate-800');
+        }
+
+        // Form Elements
+        const inputApplicantTitle = document.getElementById('input-applicant-title');
+        const inputApplicantName = document.getElementById('input-applicant-name');
+        const inputRelationType = document.getElementById('input-relation-type');
+        const inputParentName = document.getElementById('input-parent-name');
+        const inputAge = document.getElementById('input-age');
+        const inputOccupation = document.getElementById('input-occupation');
+        const inputResidence = document.getElementById('input-residence');
+        const inputVillage = document.getElementById('input-village');
+        const inputTehsil = document.getElementById('input-tehsil');
+        const inputDistrict = document.getElementById('input-district');
+        const inputCasteName = document.getElementById('input-caste-name');
+        const inputCategoryName = document.getElementById('input-category-name');
+        const inputColumnNo = document.getElementById('input-column-no');
+        const inputPlace = document.getElementById('input-place');
+        const inputDate = document.getElementById('input-date');
+
+        // Preview Elements
+        const viewApplicantTitle = document.getElementById('view-applicant-title');
+        const viewApplicantName = document.getElementById('view-applicant-name');
+        const viewRelationType = document.getElementById('view-relation-type');
+        const viewParentName = document.getElementById('view-parent-name');
+        const viewAge = document.getElementById('view-age');
+        const viewOccupation = document.getElementById('view-occupation');
+        const viewResidence = document.getElementById('view-residence');
+        const viewVillage = document.getElementById('view-village');
+        const viewTehsil = document.getElementById('view-tehsil');
+        const viewDistrict = document.getElementById('view-district');
+        const viewCasteName = document.getElementById('view-caste-name');
+        const viewCategoryName = document.getElementById('view-category-name');
+        const viewColumnNo = document.getElementById('view-column-no');
+        const viewPlace = document.getElementById('view-place');
+        const viewDateText = document.getElementById('view-date-text');
+
+        function updatePreview() {
+            viewApplicantTitle.innerText = inputApplicantTitle.value;
+            viewApplicantName.innerText = inputApplicantName.value || '___________________________________';
+            viewRelationType.innerText = inputRelationType.value;
+            viewParentName.innerText = inputParentName.value || '___________________________';
+            viewAge.innerText = inputAge.value || '____';
+            viewOccupation.innerText = inputOccupation.value;
+            viewResidence.innerText = inputResidence.value || '_______________';
+            viewVillage.innerText = inputVillage.value || '_____________';
+            viewTehsil.innerText = inputTehsil.value || '______________';
+            viewDistrict.innerText = inputDistrict.value || '____________';
+            viewCasteName.innerText = inputCasteName.value || '__________';
+            viewCategoryName.innerText = inputCategoryName.value;
+            viewColumnNo.innerText = inputColumnNo.value || '___';
+            viewPlace.innerText = inputPlace.value || '___________';
+            viewDateText.innerText = inputDate.value || '_____/_____/_____';
+        }
+
+        // TRANSLITERATION DICTIONARY & CORE ENGINE
+        const marathiRules = {
+            'a': 'ा', 'b': 'ब', 'c': 'च', 'd': 'द', 'e': 'े', 'f': 'फ', 'g': 'ग', 'h': 'ह', 'i': 'ि', 
+            'j': 'ज', 'k': 'क', 'l': 'ल', 'm': 'म', 'n': 'न', 'o': 'ो', 'p': 'प', 'q': 'क', 'r': 'र', 
+            's': 'स', 't': 'त', 'u': 'ु', 'v': 'व', 'w': 'व', 'x': 'क्ष', 'y': 'य', 'z': 'झ',
+            'sh': 'श', 'ch': 'च', 'th': 'थ', 'dh': 'ध', 'kh': 'ख', 'gh': 'घ', 'bh': 'भ', 'ph': 'फ',
+            'aa': 'ा', 'ee': 'ी', 'oo': 'ू', 'ai': 'ै', 'au': 'ौ', 'am': 'ं', 'ah': 'ः',
+            'gopal': 'गोपाळ', 'tukaram': 'तुकाराम', 'wankhade': 'वानखडे', 'pungaon': 'पुणगाव',
+            'chandur': 'चांदूर', 'bazar': 'बाजार', 'amravati': 'अमरावती', 'kunbi': 'कुणबी'
+        };
+
+        function transliterateWord(word) {
+            let lowerWord = word.toLowerCase();
+            if (marathiRules[lowerWord]) return marathiRules[lowerWord];
+            
+            let result = '';
+            let i = 0;
+            while (i < word.length) {
+                let char2 = lowerWord.substring(i, i + 2);
+                let char1 = lowerWord.substring(i, i + 1);
+                
+                if (marathiRules[char2]) {
+                    result += marathiRules[char2];
+                    i += 2;
+                } else if (marathiRules[char1]) {
+                    result += marathiRules[char1];
+                    i += 1;
+                } else {
+                    result += char1;
+                    i++;
+                }
+            }
+            return result;
+        }
+
+        // Handle space pressed trigger for fast conversion
+        document.querySelectorAll('.marathi-input').forEach(input => {
+            input.addEventListener('keydown', function(e) {
+                if (e.key === ' ' || e.keyCode === 32) {
+                    let text = this.value;
+                    let words = text.split(' ');
+                    let lastWord = words[words.length - 1];
+                    
+                    if(lastWord && !/[\u0900-\u097F]/.test(lastWord)) {
+                        let converted = transliterateWord(lastWord);
+                        words[words.length - 1] = converted;
+                        this.value = words.join(' ');
+                        updatePreview();
+                    }
+                }
+            });
+            input.addEventListener('blur', updatePreview);
+        });
+
+        // Dropdown listeners for real-time preview change
+        inputApplicantTitle.addEventListener('change', updatePreview);
+        inputRelationType.addEventListener('change', updatePreview);
+        inputOccupation.addEventListener('change', updatePreview);
+        inputCategoryName.addEventListener('change', updatePreview);
+
+        // PDF Generation
+        function triggerPDFDownload() {
+            const originalTransform = printAreaEl.style.transform;
+            printAreaEl.style.transform = "scale(1)";
+            const opt = {
+                margin:       [8, 8, 8, 8],
+                filename:     (inputApplicantName.value || 'Declaration') + '_परिशिष्ट_ब_स्वयंघोषणापत्र.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(printAreaEl).save().then(() => {
+                printAreaEl.style.transform = originalTransform; 
+            });
+        }
+
+        function triggerPrint() { window.print(); }
+
+        function saveFormData() {
+            const formData = {
+                title: inputApplicantTitle.value, name: inputApplicantName.value,
+                relation: inputRelationType.value, parent: inputParentName.value,
+                age: inputAge.value, occupation: inputOccupation.value, residence: inputResidence.value,
+                village: inputVillage.value, tehsil: inputTehsil.value, district: inputDistrict.value,
+                caste: inputCasteName.value, category: inputCategoryName.value, column: inputColumnNo.value,
+                place: inputPlace.value, date: inputDate.value, topSpace: inputTopSpace.value
+            };
+            localStorage.setItem('vle_new_file2_data', JSON.stringify(formData));
+            alert('स्वयंघोषणापत्र माहिती सुरक्षितपणे सेव्ह झाली आहे!');
+        }
+
+        function resetFormFields() {
+            inputApplicantTitle.value = "श्री."; inputApplicantName.value = "गोपाळ तुकाराम वानखडे";
+            inputRelationType.value = "यांचा मुलगा"; inputParentName.value = "तुकाराम वानखडे";
+            inputAge.value = "२५"; inputOccupation.value = "शेतकरी"; inputResidence.value = "मु. पो. पुणगाव";
+            inputVillage.value = "पुणगाव"; inputTehsil.value = "चांदूर बाजार"; inputDistrict.value = "अमरावती";
+            inputCasteName.value = "कुणबी"; inputCategoryName.value = "इतर मागासवर्ग (OBC)"; inputColumnNo.value = "३";
+            inputPlace.value = "चांदूर बाजार"; inputDate.value = "19/07/2026";
+            inputTopSpace.value = 0; spaceVal.innerText = "0 px"; dynamicSpaceHolder.style.height = "0px";
+            changeStamp('none'); updatePreview(); currentZoom = 100; applyZoom();
+        }
+
+        window.onload = function() {
+            const savedData = localStorage.getItem('vle_new_file2_data');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                inputApplicantTitle.value = data.title || "श्री."; inputApplicantName.value = data.name || "";
+                inputRelationType.value = data.relation || "यांचा मुलगा"; inputParentName.value = data.parent || "";
+                inputAge.value = data.age || ""; inputOccupation.value = data.occupation || "शेतकरी"; inputResidence.value = data.residence || "";
+                inputVillage.value = data.village || ""; inputTehsil.value = data.tehsil || ""; inputDistrict.value = data.district || "";
+                inputCasteName.value = data.caste || ""; inputCategoryName.value = data.category || "इतर मागासवर्ग (OBC)"; inputColumnNo.value = data.column || "३";
+                inputPlace.value = data.place || ""; inputDate.value = data.date || "19/07/2026";
+                if(data.topSpace) {
+                    inputTopSpace.value = data.topSpace;
+                    spaceVal.innerText = data.topSpace + "px";
+                    dynamicSpaceHolder.style.height = data.topSpace + "px";
+                }
+            }
+            updatePreview();
+        };
+
+        const allFields = [inputApplicantName, inputParentName, inputAge, inputResidence, inputVillage, inputTehsil, inputDistrict, inputCasteName, inputColumnNo, inputPlace, inputDate];
+        allFields.forEach(field => {
+            field.addEventListener('input', updatePreview);
+        });
+    </script>
+</body>
+</html>
