@@ -1,0 +1,20 @@
+{
+  "name": "Suyoms VLE Mitra",
+  "short_name": "Suyoms",
+  "start_url": "https://www.suyoms.com/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "icons": [
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFYFZi1L8D2gU4BVf8yW-oLxys3qd_r5OBaNWNOcJBwImTNOqOhJ7hEpswcyb7UAbbKsWjNyicYTfBnTxrNqJsGiG3_1K3Fjc33eeiCpu_b5LzVQ-tqYlOnFqtCBNJ-_vPTc_fSfTUQZoJxVKn2Hd7Uro-TjaI1MfPbL3ovfUtpE6_leC3sRny8ymG8AOw/s1600/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcV5RgkzHMjcjsqh2-y9AuiyhiUr_POXDHqSu-tRlVrMeCKeZ0F6heIEvSeX7aJGDdiqdDhE7GAl1vFo3UW0oN5j5S3KDPmT0fsdpwkN9NGb0ngjZWab2OWdb7UMLcrwVt-d1hoHhw0dKUYJSA8s8TI3WaPnMZR7Z_PoAloA0806SPQWEvP9maHsfyZ_2L/s1600/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
